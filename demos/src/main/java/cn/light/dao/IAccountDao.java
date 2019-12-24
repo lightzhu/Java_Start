@@ -4,6 +4,6 @@ import cn.light.beans.Account;
 
 import java.util.List;
 
-public interface AccountDao {
+public interface IAccountDao {
    List<Account> findAll();
 }

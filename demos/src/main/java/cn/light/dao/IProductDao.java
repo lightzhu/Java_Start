@@ -1,4 +1,7 @@
 package cn.light.dao;
 
-public class ProductDao {
+import cn.light.beans.Product;
+
+public interface IProductDao {
+    Product findByName(String name);
 }

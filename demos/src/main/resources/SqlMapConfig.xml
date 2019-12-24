@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--配置环境-->
+    <environments default="development">
+        <environment id="development">
+            <!--配置事物类型-->
+            <transactionManager type="JDBC"/>
+            <!--配置数据源-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/demo_db"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root1234"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--指定映射配置文件的位置，每个配置文件独立对应一个dao-->
+    <mappers>
+        <!--路径的层级必须和dao类的层级保持一致-->
+        <mapper resource="cn/light/dao/AccountMapper.xml"/>
+        <mapper resource="cn/light/dao/ProductMapper.xml"/>
+    </mappers>
+</configuration>

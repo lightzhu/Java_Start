@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class AccountDaoTest {
+public class IAccountDaoTest {
 
     @Test
     public void findAll() throws IOException {
@@ -19,11 +19,13 @@ public class AccountDaoTest {
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(inputStream);
         SqlSession session = factory.openSession();
-        AccountDao acd = session.getMapper(AccountDao.class);
+        IAccountDao acd = session.getMapper(IAccountDao.class);
         List<Account> lists = acd.findAll();
         for (Account item:lists){
             System.out.println(item);
         }
+        IProductDao pd = session.getMapper(IProductDao.class);
+        System.out.println(pd.findByName("苹果"));
         session.close();
         inputStream.close();
     }
