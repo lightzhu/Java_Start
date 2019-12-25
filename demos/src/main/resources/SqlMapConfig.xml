@@ -21,6 +21,7 @@
     <mappers>
         <!--路径的层级必须和dao类的层级保持一致-->
         <mapper resource="cn/light/dao/AccountMapper.xml"/>
-        <mapper resource="cn/light/dao/ProductMapper.xml"/>
+        <!--使用注解实现的mapper配置-->
+        <mapper class="cn.light.dao.IProductDao"/>
     </mappers>
 </configuration>

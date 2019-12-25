@@ -29,4 +29,15 @@ public class IAccountDaoTest {
         session.close();
         inputStream.close();
     }
+    @Test
+    public void findByName() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(inputStream);
+        SqlSession session = factory.openSession();
+        IProductDao pd = session.getMapper(IProductDao.class);
+        System.out.println(pd.findByName("苹果"));
+        session.close();
+        inputStream.close();
+    }
 }

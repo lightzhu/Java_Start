@@ -35,3 +35,5 @@ target/
 *.iml
 *.ipr
 /out/
+*.settings/
+
