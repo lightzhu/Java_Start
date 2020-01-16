@@ -2,6 +2,7 @@ package cn.demo.dao;
 
 import cn.demo.beans.Account;
 import cn.demo.service.AccountService;
+import cn.demo.utils.MyJdkProxy;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -33,5 +34,12 @@ public class AccountDaoTest {
         zh.setName("pop");
         zh.setMoney(7890.8f);
         acs.saveAccount(zh);
+    }
+    @Test
+    public void JdkProxy() {
+        UserDao userDao = new UserDao();
+        IUserDao proxy = (IUserDao) new MyJdkProxy(userDao).creatProxy();
+        proxy.add();
+        proxy.update();
     }
 }
